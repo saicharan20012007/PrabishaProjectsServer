@@ -72,7 +72,7 @@ router.route("/login").post(async (req, res) => {
           role: isUserPresent.role,
         }
 
-        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        const token = jwt.sign(payload, "q1D8ncWUklpcHA5vOsnBMvJ4iwvFlajJIRppO595e14-1690095035-0-AQqql3E2IC7ZlEYpboMO2q8thU8l5wg1dHmHqCbWfnmcvWZ1x+Hkn6/6A7tof1JhXWJya82ccXK6k1I5ln9RO9g=", {
           expiresIn: "3d",
         })
 
@@ -103,14 +103,6 @@ router.route("/users").get(authenticateToken, async (req, res) => {
 })
 
 
-router.route("/users/details").get(authenticateToken, async (req, res) => {
-  try {
-    const users = await User.find()
-    res.status(200).json(users)
-  } catch (err) {
-    console.log(err)
-    res.status(500).json({ message: "Internal Server Error" })
-  }
-})
+
 
 module.exports = router
