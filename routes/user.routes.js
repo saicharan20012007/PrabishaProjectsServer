@@ -39,7 +39,7 @@ router.route("/signup").post(async (req, res) => {
         role: newUser.role,
       }
 
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      const token = jwt.sign(payload, "3179d9abf280133c55b448e42dae5684c8ec56d63790403aa3c36d75d79f2ef96febebb890f2ac6484db3a6d6ab139dc74824a38e4b4b42cc36b697d0622bd74", {
         expiresIn: "3d",
       })
 
@@ -72,7 +72,7 @@ router.route("/login").post(async (req, res) => {
           role: isUserPresent.role,
         }
 
-        const token = jwt.sign(payload, "q1D8ncWUklpcHA5vOsnBMvJ4iwvFlajJIRppO595e14-1690095035-0-AQqql3E2IC7ZlEYpboMO2q8thU8l5wg1dHmHqCbWfnmcvWZ1x+Hkn6/6A7tof1JhXWJya82ccXK6k1I5ln9RO9g=", {
+        const token = jwt.sign(payload, "3179d9abf280133c55b448e42dae5684c8ec56d63790403aa3c36d75d79f2ef96febebb890f2ac6484db3a6d6ab139dc74824a38e4b4b42cc36b697d0622bd74", {
           expiresIn: "3d",
         })
 
