@@ -102,4 +102,15 @@ router.route("/users").get(authenticateToken, async (req, res) => {
   }
 })
 
+
+router.route("/users/details").get(authenticateToken, async (req, res) => {
+  try {
+    const users = await User.find()
+    res.status(200).json(users)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ message: "Internal Server Error" })
+  }
+})
+
 module.exports = router
