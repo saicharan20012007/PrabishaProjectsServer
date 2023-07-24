@@ -12,7 +12,7 @@ router.route("/").get(async (req, res) => {
 })
 
 router.route("/create").post(authenticateToken, async (req, res) => {
-  const { title, description, dueDate, assignedTo, createdBy, status } =
+  const { title, description,startDate, dueDate, assignedTo, createdBy, status,latestUpdate } =
     req.body
 
   console.log(req.body)
@@ -57,7 +57,7 @@ router.route("/get/:id").get(authenticateToken, async (req, res) => {
 })
 
 router.route("/update/:id").put(authenticateToken, async (req, res) => {
-  const { id, title, description, dueDate, assignedTo, createdBy, status } =
+  const { id, title, description,startDate, dueDate, assignedTo, createdBy, status, latestUpdate } =
     req.body
 
   try {
@@ -81,11 +81,14 @@ router.route("/update/:id").put(authenticateToken, async (req, res) => {
     const updatedTask = await Task.findByIdAndUpdate(id, {
       title,
       description,
+      startDate,
       dueDate,
+
 
       assignedUser: assignedTo,
       createdBy,
       status,
+      latestUpdate
     })
 
     res
