@@ -15,11 +15,19 @@ const taskSchema = new Schema(
       type: Date,
       require: true,
     },
+    startDate: {
+      type: Date,
+      require: true,
+    },
     status: {
       type: String,
       require: true,
       enum: ["Pending", "In Progress", "Completed"],
       default: "Pending",
+    },
+    latestUpdate: {
+      type: String,
+      require: true,
     },
     assignedUser: {
       type: String,
