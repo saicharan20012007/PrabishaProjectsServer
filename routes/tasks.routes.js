@@ -22,9 +22,11 @@ router.route("/create").post(authenticateToken, async (req, res) => {
       title,
       description,
       dueDate,
+      startDate,
       assignedUser: assignedTo,
       createdBy,
       status,
+      latestUpdate
     })
 
     newTask.save()
@@ -80,6 +82,7 @@ router.route("/update/:id").put(authenticateToken, async (req, res) => {
       title,
       description,
       dueDate,
+
       assignedUser: assignedTo,
       createdBy,
       status,
