@@ -12,20 +12,26 @@ router.route("/").get(async (req, res) => {
 })
 
 router.route("/create").post(authenticateToken, async (req, res) => {
-  const { title, description,startDate, dueDate, assignedTo, createdBy, status,latestUpdate } =
+  const { company, contact,city, project, tasks, quantity, startDate, plannedEndDate,actualEndDate, assignedTo, createdBy, status,  priority, latestUpdate } =
     req.body
 
   console.log(req.body)
 
   try {
     const newTask = new Task({
-      title,
-      description,
-      dueDate,
+      company,
+      contact,
+      city,
+      project,
+      tasks, 
+      quantity,
       startDate,
+      plannedEndDate,
+      actualEndDate,      
       assignedUser: assignedTo,
       createdBy,
       status,
+      priority,
       latestUpdate
     })
 
@@ -57,7 +63,7 @@ router.route("/get/:id").get(authenticateToken, async (req, res) => {
 })
 
 router.route("/update/:id").put(authenticateToken, async (req, res) => {
-  const { id, title, description,startDate, dueDate, assignedTo, createdBy, status, latestUpdate } =
+  const { id,company, contact,city, project, tasks, quantity, startDate, plannedEndDate,actualEndDate, assignedTo, createdBy, status,  priority, latestUpdate   } =
     req.body
 
   try {
@@ -79,16 +85,20 @@ router.route("/update/:id").put(authenticateToken, async (req, res) => {
     } */
 
     const updatedTask = await Task.findByIdAndUpdate(id, {
-      title,
-      description,
-      startDate,
-      dueDate,
-
-
-      assignedUser: assignedTo,
-      createdBy,
-      status,
-      latestUpdate
+    company,
+    contact,
+    city,
+    project,
+    tasks,
+    quantity,
+    startDate,
+    plannedEndDate,
+    actualEndDate,
+    createdBy,
+    status,
+    priority,
+    latestUpdate ,
+    assignedUser: assignedTo,
     })
 
     res

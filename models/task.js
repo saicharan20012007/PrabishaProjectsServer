@@ -3,15 +3,35 @@ const Schema = mongoose.Schema
 
 const taskSchema = new Schema(
   {
-    title: {
+    company: {
       type: String,
       require: true,
     },
-    description: {
+    contact: {
       type: String,
       require: true,
     },
-    dueDate: {
+    city: {
+      type: String,
+      require: true,
+    },
+    project: {
+      type: String,
+      require: true,
+    },
+    tasks: {
+      type: String,
+      require: true,
+    },
+    quantity: {
+      type: String,
+      require: true,
+    },
+    actualEndDate: {
+      type: Date,
+      require: true,
+    },
+    plannedEndDate: {
       type: Date,
       require: true,
     },
@@ -24,6 +44,12 @@ const taskSchema = new Schema(
       require: true,
       enum: ["Pending", "In Progress", "Completed"],
       default: "Pending",
+    },
+    priority: {
+      type: String,
+      require: true,
+      enum: ["High", "Low"],
+      default: "High",
     },
     latestUpdate: {
       type: String,
