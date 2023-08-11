@@ -64,7 +64,7 @@ router.route("/get/:id").get(authenticateToken, async (req, res) => {
 })
 
 router.route("/update/:id").put(authenticateToken, async (req, res) => {
-  const { id,company, contact,city, project, tasks, quantity, startDate, plannedEndDate,actualEndDate, assignedTo, createdBy, status,  priority,category, latestUpdate   } =
+  const { id,company, contact,city, project, tasks, quantity, startDate, plannedEndDate,actualEndDate, assignedTo, createdBy, status,  priority, category, latestUpdate   } =
     req.body
 
   try {
