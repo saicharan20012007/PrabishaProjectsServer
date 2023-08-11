@@ -51,6 +51,13 @@ const taskSchema = new Schema(
       enum: ["High", "Low"],
       default: "High",
     },
+    category:{
+      type:String,
+      require: true,
+      enum:["Software", "Website", "SEO", "SMM", "Graphic Design", "Resume", "Video Projects"],
+      default:"Software"
+
+    },
     latestUpdate: {
       type: String,
       require: true,

@@ -12,7 +12,7 @@ router.route("/").get(async (req, res) => {
 })
 
 router.route("/create").post(authenticateToken, async (req, res) => {
-  const { company, contact,city, project, tasks, quantity, startDate, plannedEndDate,actualEndDate, assignedTo, createdBy, status,  priority, latestUpdate } =
+  const { company, contact,city, project, tasks, quantity, startDate, plannedEndDate,actualEndDate, assignedTo, createdBy, status,  priority,category, latestUpdate } =
     req.body
 
   console.log(req.body)
@@ -32,6 +32,7 @@ router.route("/create").post(authenticateToken, async (req, res) => {
       createdBy,
       status,
       priority,
+      category,
       latestUpdate
     })
 
@@ -63,7 +64,7 @@ router.route("/get/:id").get(authenticateToken, async (req, res) => {
 })
 
 router.route("/update/:id").put(authenticateToken, async (req, res) => {
-  const { id,company, contact,city, project, tasks, quantity, startDate, plannedEndDate,actualEndDate, assignedTo, createdBy, status,  priority, latestUpdate   } =
+  const { id,company, contact,city, project, tasks, quantity, startDate, plannedEndDate,actualEndDate, assignedTo, createdBy, status,  priority,category, latestUpdate   } =
     req.body
 
   try {
@@ -97,6 +98,7 @@ router.route("/update/:id").put(authenticateToken, async (req, res) => {
     createdBy,
     status,
     priority,
+    category,
     latestUpdate ,
     assignedUser: assignedTo,
     })
